@@ -1,9 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const iconvLite = require("iconv-lite");
+exports.iconvLite = iconvLite;
 const iconv_lite_1 = require("iconv-lite");
 exports.encodingExists = iconv_lite_1.encodingExists;
 const jschardet = require("jschardet");
+exports.jschardet = jschardet;
 const encoding_1 = require("./encoding");
 exports.codec_data = encoding_1.codec_data;
 function skipDecodeWarning(bool = true) {

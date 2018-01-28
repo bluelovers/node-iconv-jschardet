@@ -1,7 +1,9 @@
 /// <reference types="node" />
+import * as iconvLite from 'iconv-lite';
 import { encodingExists } from 'iconv-lite';
+import * as jschardet from 'jschardet';
 import { codec_data } from './encoding';
-export { encodingExists, codec_data };
+export { encodingExists, codec_data, jschardet, iconvLite };
 export declare type vEncoding = 'Big5' | 'UTF-8' | 'Gbk' | string | null;
 export declare function skipDecodeWarning(bool?: boolean): boolean;
 export declare function BufferFrom(str: any, encoding: vEncoding, from?: vEncoding): Buffer;

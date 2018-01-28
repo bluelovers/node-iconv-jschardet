@@ -6,6 +6,9 @@ import { codec_data } from './encoding';
 export {
 	encodingExists,
 	codec_data,
+
+	jschardet,
+	iconvLite,
 }
 
 export type vEncoding = 'Big5' | 'UTF-8' | 'Gbk' | string | null;
