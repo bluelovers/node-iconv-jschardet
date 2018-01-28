@@ -56,4 +56,5 @@ iconv.decode(BIG5_BUF);
 
 ```ts
 iconv.skipDecodeWarning(bool: boolean = true)
+iconv.disableCodecDataWarn(bool: boolean = true)
 ```
