@@ -1,11 +1,18 @@
 import * as iconvLite from 'iconv-lite';
 import { encodingExists } from 'iconv-lite';
 import * as jschardet from 'jschardet';
-import { codec_data } from './encoding';
+export * from './encoding';
+import { codec_data, _enc, isNodeEncoding, NodeEncoding } from './encoding';
 
 export {
 	encodingExists,
+
+	/*
 	codec_data,
+	_enc,
+	isNodeEncoding,
+	NodeEncoding,
+	*/
 
 	jschardet,
 	iconvLite,

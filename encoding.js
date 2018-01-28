@@ -5,6 +5,22 @@ function _enc(encoding) {
     return encoding.toString().toLowerCase().replace(/[^0-9a-z]|:\d{4}$/g, '');
 }
 exports._enc = _enc;
+exports.NodeEncoding = [
+    'ascii',
+    'utf8',
+    'utf-8',
+    'utf16le',
+    'ucs2',
+    'base64',
+    'latin1',
+    'binary',
+    'hex',
+];
+function isNodeEncoding(encoding) {
+    let enc = _enc(encoding);
+    return exports.NodeEncoding.includes(_enc(encoding)) ? enc : null;
+}
+exports.isNodeEncoding = isNodeEncoding;
 function codec_data(encoding) {
     let codec;
     let enc;

@@ -1,4 +1,4 @@
-import * as iconv from './iconv';
+import * as iconv from './index';
 import * as iconvLite from 'iconv-lite';
 
 export function _enc(encoding: string): string
@@ -33,6 +33,29 @@ export interface IEncodingCodecTable
 	utf32le: IEncodingCodec,
 
 	[key: string]: IEncodingCodec,
+}
+
+export const NodeEncoding = [
+	'ascii',
+
+	'utf8',
+	'utf-8',
+
+	'utf16le',
+	'ucs2',
+
+	'base64',
+
+	'latin1',
+	'binary',
+
+	'hex',
+];
+
+export function isNodeEncoding(encoding: string): string
+{
+	let enc = _enc(encoding);
+	return NodeEncoding.includes(_enc(encoding)) ? enc : null;
 }
 
 export function codec_data(encoding: iconv.vEncoding): IEncodingCodec

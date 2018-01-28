@@ -1,4 +1,4 @@
-import * as iconv from './iconv';
+import * as iconv from './index';
 export declare function _enc(encoding: string): string;
 export interface IEncodingCodec {
     key?: string;
@@ -21,6 +21,8 @@ export interface IEncodingCodecTable {
     utf32le: IEncodingCodec;
     [key: string]: IEncodingCodec;
 }
+export declare const NodeEncoding: string[];
+export declare function isNodeEncoding(encoding: string): string;
 export declare function codec_data(encoding: iconv.vEncoding): IEncodingCodec;
 export declare const codec_table: IEncodingCodecTable;
 import * as self from './encoding';
