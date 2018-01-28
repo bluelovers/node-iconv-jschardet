@@ -1,0 +1,50 @@
+{
+  "name": "iconv-jschardet",
+  "version": "1.0.0",
+  "description": "Convert/auto-detection Character encodings  in JavaScript ( iconv-lite, jschardet )",
+  "keywords": [
+    "big-5",
+    "buffer",
+    "charset",
+    "chinese",
+    "convert",
+    "create",
+    "decode",
+    "encode",
+    "encoding",
+    "euc-jp",
+    "extra",
+    "gb2312",
+    "gbk",
+    "iconv",
+    "iconv-lite",
+    "icu",
+    "output",
+    "read",
+    "shift_jis",
+    "text",
+    "unicode",
+    "utf-8"
+  ],
+  "homepage": "https://github.com/bluelovers/node-iconv-jschardet#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/node-iconv-jschardet/issues"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/node-iconv-jschardet.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "iconv-lite": "^0.4.19",
+    "jschardet": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^9.4.0"
+  }
+}
