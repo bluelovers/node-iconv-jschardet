@@ -1,6 +1,6 @@
 # iconv-jschardet
 
-> save file with charset/encoding
+> Convert/auto-detection Character encodings  in JavaScript ( iconv-lite, jschardet )
 
 `npm install iconv-jschardet`
 
