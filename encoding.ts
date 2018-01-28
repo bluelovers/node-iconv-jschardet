@@ -58,6 +58,13 @@ export function isNodeEncoding(encoding: string): string
 	return NodeEncoding.includes(_enc(encoding)) ? enc : null;
 }
 
+let DISABLE_CODEC_DATA_WARN = false;
+
+export function disableCodecDataWarn(bool: boolean = true)
+{
+	return DISABLE_CODEC_DATA_WARN = bool;
+}
+
 export function codec_data(encoding: iconv.vEncoding): IEncodingCodec
 {
 	let codec: {
@@ -96,7 +103,10 @@ export function codec_data(encoding: iconv.vEncoding): IEncodingCodec
 		return codec_table[enc];
 	}
 
-	console.warn(encoding, enc, enc2, codec);
+	if (!DISABLE_CODEC_DATA_WARN)
+	{
+		console.warn(encoding, enc, enc2, codec);
+	}
 
 	if (enc2)
 	{
@@ -125,6 +135,11 @@ export const codec_table: IEncodingCodecTable = {
 	cp936: {
 		name: 'GB2312',
 	},
+
+	gbk: {
+		name: 'GBK',
+	},
+
 	eucjp: {
 		name: 'UC-JP',
 	},

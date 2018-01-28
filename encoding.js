@@ -21,6 +21,11 @@ function isNodeEncoding(encoding) {
     return exports.NodeEncoding.includes(_enc(encoding)) ? enc : null;
 }
 exports.isNodeEncoding = isNodeEncoding;
+let DISABLE_CODEC_DATA_WARN = false;
+function disableCodecDataWarn(bool = true) {
+    return DISABLE_CODEC_DATA_WARN = bool;
+}
+exports.disableCodecDataWarn = disableCodecDataWarn;
 function codec_data(encoding) {
     let codec;
     let enc;
@@ -42,7 +47,9 @@ function codec_data(encoding) {
         exports.codec_table[enc].input = encoding;
         return exports.codec_table[enc];
     }
-    console.warn(encoding, enc, enc2, codec);
+    if (!DISABLE_CODEC_DATA_WARN) {
+        console.warn(encoding, enc, enc2, codec);
+    }
     if (enc2) {
         return {
             key: enc,
@@ -64,6 +71,9 @@ exports.codec_table = {
     },
     cp936: {
         name: 'GB2312',
+    },
+    gbk: {
+        name: 'GBK',
     },
     eucjp: {
         name: 'UC-JP',
