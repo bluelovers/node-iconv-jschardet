@@ -1,4 +1,6 @@
-import * as iconv from './index';
+import iconv = require('./index');
+import { console } from 'debug-color2';
+export { console };
 export declare function _enc(encoding: string): string;
 export interface IEncodingCodec {
     key?: string;

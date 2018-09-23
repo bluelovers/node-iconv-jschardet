@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const iconvLite = require("iconv-lite");
+const debug_color2_1 = require("debug-color2");
+exports.console = debug_color2_1.console;
 function _enc(encoding) {
     return encoding.toString().toLowerCase().replace(/[^0-9a-z]|:\d{4}$/g, '');
 }
@@ -48,7 +50,7 @@ function codec_data(encoding) {
         return exports.codec_table[enc];
     }
     if (!DISABLE_CODEC_DATA_WARN) {
-        console.warn(encoding, enc, enc2, codec);
+        debug_color2_1.console.warn(encoding, enc, enc2, codec);
     }
     if (enc2) {
         return {

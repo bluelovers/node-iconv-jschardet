@@ -5,12 +5,13 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const iconvLite = require("iconv-lite");
 exports.iconvLite = iconvLite;
-const iconv_lite_1 = require("iconv-lite");
-exports.encodingExists = iconv_lite_1.encodingExists;
 const jschardet = require("jschardet");
 exports.jschardet = jschardet;
+var encodingExists = iconvLite.encodingExists;
+exports.encodingExists = encodingExists;
 __export(require("./encoding"));
 const encoding_1 = require("./encoding");
+exports.disableCodecDataWarn = encoding_1.disableCodecDataWarn;
 function skipDecodeWarning(bool = true) {
     return iconvLite.skipDecodeWarning = bool;
 }
@@ -76,7 +77,7 @@ function decode(str, from = null) {
             break;
         default:
             c = c || detect(str);
-            console.warn('decode', from, c);
+            encoding_1.console.warn('decode', from, c);
             data = iconvLite.decode(str, from);
             break;
     }

@@ -1,8 +1,10 @@
-import * as iconvLite from 'iconv-lite';
-import { encodingExists } from 'iconv-lite';
-import * as jschardet from 'jschardet';
+import iconvLite = require('iconv-lite');
+import jschardet = require('jschardet');
+
+import encodingExists = iconvLite.encodingExists
+
 export * from './encoding';
-import { codec_data, _enc, isNodeEncoding, NodeEncoding } from './encoding';
+import { codec_data, _enc, isNodeEncoding, NodeEncoding, disableCodecDataWarn, console } from './encoding';
 
 export {
 	encodingExists,
@@ -16,11 +18,13 @@ export {
 
 	jschardet,
 	iconvLite,
+
+	disableCodecDataWarn,
 }
 
 export type vEncoding = 'Big5' | 'UTF-8' | 'Gbk' | string | null;
 
-export function skipDecodeWarning(bool: boolean = true)
+export function skipDecodeWarning(bool: boolean = true): boolean
 {
 	// @ts-ignore
 	return iconvLite.skipDecodeWarning = bool;
@@ -45,6 +49,15 @@ export function BufferFrom(str, encoding: vEncoding, from?: vEncoding): Buffer
 	return buf;
 }
 
+export interface IDetectData
+{
+	encoding: string,
+	confidence: number,
+
+	name?: string,
+	id?: string,
+}
+
 export function detect(str, plus?: boolean): {
 	encoding: string,
 	confidence: number,
@@ -53,7 +66,7 @@ export function detect(str, plus?: boolean): {
 	id?: string,
 }
 {
-	let ret = jschardet.detect(str);
+	let ret = jschardet.detect(str) as any as IDetectData;
 
 	if (plus)
 	{

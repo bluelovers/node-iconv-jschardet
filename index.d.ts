@@ -1,12 +1,19 @@
 /// <reference types="node" />
-import * as iconvLite from 'iconv-lite';
-import { encodingExists } from 'iconv-lite';
-import * as jschardet from 'jschardet';
+import iconvLite = require('iconv-lite');
+import jschardet = require('jschardet');
+import encodingExists = iconvLite.encodingExists;
 export * from './encoding';
-export { encodingExists, jschardet, iconvLite };
+import { disableCodecDataWarn } from './encoding';
+export { encodingExists, jschardet, iconvLite, disableCodecDataWarn, };
 export declare type vEncoding = 'Big5' | 'UTF-8' | 'Gbk' | string | null;
 export declare function skipDecodeWarning(bool?: boolean): boolean;
 export declare function BufferFrom(str: any, encoding: vEncoding, from?: vEncoding): Buffer;
+export interface IDetectData {
+    encoding: string;
+    confidence: number;
+    name?: string;
+    id?: string;
+}
 export declare function detect(str: any, plus?: boolean): {
     encoding: string;
     confidence: number;

@@ -22,6 +22,7 @@ describe(relative(__filename), () =>
 
 	self.skipDecodeWarning();
 
+	// @ts-ignore
 	beforeEach(function ()
 	{
 		currentTest = this.currentTest;
@@ -30,8 +31,10 @@ describe(relative(__filename), () =>
 		//console.log('it:before', currentTest.fullTitle());
 	});
 
-	describe(`init`, () =>
+	// @ts-ignore
+	describe(`check encoding`, () =>
 	{
+		// @ts-ignore
 		it(`BIG5_STR`, function (done)
 		{
 			let c = self.detect(BIG5_STR);
@@ -42,6 +45,7 @@ describe(relative(__filename), () =>
 			done();
 		});
 
+		// @ts-ignore
 		it(`BIG5_BUF`, function (done)
 		{
 			let c = self.detect(BIG5_BUF);
@@ -53,8 +57,10 @@ describe(relative(__filename), () =>
 		});
 	});
 
+	// @ts-ignore
 	describe(`iconv`, () =>
 	{
+		// @ts-ignore
 		it(`encode big5`, function (done)
 		{
 			//console.log('it:inner', currentTest.title);
@@ -72,6 +78,7 @@ describe(relative(__filename), () =>
 
 			done();
 		});
+		// @ts-ignore
 		it(`encode big5`, function (done)
 		{
 			//console.log('it:inner', currentTest.title);
@@ -90,6 +97,7 @@ describe(relative(__filename), () =>
 			done();
 		});
 
+		// @ts-ignore
 		it(`encode`, function (done)
 		{
 			let data = self.encode(BIG5_STR);
@@ -104,6 +112,7 @@ describe(relative(__filename), () =>
 			done();
 		});
 
+		// @ts-ignore
 		it(`encode`, function (done)
 		{
 			//console.log('it:inner', currentTest.title);

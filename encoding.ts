@@ -1,5 +1,8 @@
-import * as iconv from './index';
-import * as iconvLite from 'iconv-lite';
+import iconv = require('./index');
+import iconvLite = require('iconv-lite');
+import { console } from 'debug-color2';
+
+export { console }
 
 export function _enc(encoding: string): string
 {

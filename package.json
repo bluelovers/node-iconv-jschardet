@@ -1,6 +1,6 @@
 {
   "name": "iconv-jschardet",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Convert/auto-detection Character encodings  in JavaScript ( iconv-lite, jschardet )",
   "keywords": [
     "big-5",
@@ -8,6 +8,7 @@
     "buffer",
     "charset",
     "chinese",
+    "conv",
     "convert",
     "create",
     "decode",
@@ -20,6 +21,7 @@
     "iconv",
     "iconv-lite",
     "icu",
+    "jschardet",
     "output",
     "read",
     "shift_jis",
@@ -31,21 +33,22 @@
   "bugs": {
     "url": "https://github.com/bluelovers/node-iconv-jschardet/issues"
   },
-  "license": "ISC",
-  "author": "",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bluelovers/node-iconv-jschardet.git"
   },
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx -r chai -r mocha -r ts-node mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\""
   },
   "dependencies": {
-    "iconv-lite": "^0.4.19",
+    "debug-color2": "^1",
+    "iconv-lite": "^0.4.24",
     "jschardet": "^1.6.0"
   },
   "devDependencies": {
-    "@types/node": "^9.4.0"
+    "@types/node": "^10"
   }
 }
