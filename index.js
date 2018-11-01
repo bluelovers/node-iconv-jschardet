@@ -77,7 +77,9 @@ function decode(str, from = null) {
             break;
         default:
             c = c || detect(str);
-            encoding_1.console.warn('decode', from, c);
+            if (!iconvLite.skipDecodeWarning) {
+                encoding_1.console.warn('decode', from, c);
+            }
             data = iconvLite.decode(str, from);
             break;
     }

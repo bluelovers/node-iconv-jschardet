@@ -132,7 +132,12 @@ export function decode(str, from: vEncoding = null): string
 			break;
 		default:
 			c = c || detect(str);
-			console.warn('decode', from, c);
+
+			// @ts-ignore
+			if (!iconvLite.skipDecodeWarning)
+			{
+				console.warn('decode', from, c);
+			}
 
 			//data = str;
 			data = iconvLite.decode(str, from);

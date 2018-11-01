@@ -1,6 +1,6 @@
 {
   "name": "iconv-jschardet",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Convert/auto-detection Character encodings  in JavaScript ( iconv-lite, jschardet )",
   "keywords": [
     "big-5",
@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "debug-color2": "^1",
+    "env-bool": "^1.0.3",
     "iconv-lite": "^0.4.24",
     "jschardet": "^1.6.0"
   },
