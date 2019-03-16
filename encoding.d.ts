@@ -28,5 +28,5 @@ export declare function isNodeEncoding(encoding: string): string;
 export declare function disableCodecDataWarn(bool?: boolean): boolean;
 export declare function codec_data(encoding: iconv.vEncoding): IEncodingCodec;
 export declare const codec_table: IEncodingCodecTable;
-import * as self from './encoding';
-export default self;
+declare const _default: typeof import("./encoding");
+export default _default;

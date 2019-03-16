@@ -1,6 +1,6 @@
 {
   "name": "iconv-jschardet",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Convert/auto-detection Character encodings  in JavaScript ( iconv-lite, jschardet )",
   "keywords": [
     "big-5",
@@ -40,6 +40,9 @@
   "license": "ISC",
   "author": "",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "test": "npx -r chai -r mocha -r ts-node mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\""
   },
@@ -47,9 +50,10 @@
     "debug-color2": "^1",
     "env-bool": "^1.0.3",
     "iconv-lite": "^0.4.24",
-    "jschardet": "^1.6.0"
+    "jschardet": "^2.1.0"
   },
   "devDependencies": {
-    "@types/node": "^10"
+    "@bluelovers/tsconfig": "^1.0.1",
+    "@types/node": "^11"
   }
 }

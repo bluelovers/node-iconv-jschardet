@@ -22,7 +22,14 @@ export {
 	disableCodecDataWarn,
 }
 
-export type vEncoding = 'Big5' | 'UTF-8' | 'Gbk' | string | null;
+export enum EnumEncoding
+{
+	BIG5 = 'Big5',
+	UTF8 = 'UTF-8',
+	GBK = 'Gbk',
+}
+
+export type vEncoding = 'Big5' | 'UTF-8' | 'Gbk' | string | null | EnumEncoding;
 
 export function skipDecodeWarning(bool: boolean = true): boolean
 {
@@ -155,5 +162,4 @@ export function encode(str, to: vEncoding = 'utf8', from: vEncoding = null): Buf
 	return iconvLite.encode(buf, to);
 }
 
-import * as self from './index';
-export default self;
+export default exports as typeof import('./index');

@@ -178,5 +178,4 @@ export const codec_table: IEncodingCodecTable = {
 	},
 };
 
-import * as self from './encoding';
-export default self;
+export default exports as typeof import('./encoding');
