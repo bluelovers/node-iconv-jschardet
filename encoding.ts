@@ -1,64 +1,14 @@
-import iconv = require('./index');
 import iconvLite = require('iconv-lite');
 import { console } from 'debug-color2';
+import { _enc, codec_table, ENUM_NODE_ENCODING, IEncodingCodec, NodeEncoding, vEncoding } from './lib/const';
 
+export * from './lib/const';
 export { console }
 
-export function _enc(encoding: string): string
-{
-	return encoding.toString().toLowerCase().replace(/[^0-9a-z]|:\d{4}$/g, '');
-}
-
-export interface IEncodingCodec
-{
-	key?: string,
-	key2?: string,
-
-	id?: string,
-
-	name?: string,
-	input?: string,
-
-	error?: boolean,
-	not?: boolean,
-}
-
-export interface IEncodingCodecTable
-{
-	big5hkscs: IEncodingCodec,
-	cp936: IEncodingCodec,
-	eucjp: IEncodingCodec,
-	shiftjis: IEncodingCodec,
-	utf8: IEncodingCodec,
-	ucs2: IEncodingCodec,
-	utf16be: IEncodingCodec,
-	utf32be: IEncodingCodec,
-	utf32le: IEncodingCodec,
-
-	[key: string]: IEncodingCodec,
-}
-
-export const NodeEncoding = [
-	'ascii',
-
-	'utf8',
-	'utf-8',
-
-	'utf16le',
-	'ucs2',
-
-	'base64',
-
-	'latin1',
-	'binary',
-
-	'hex',
-];
-
-export function isNodeEncoding(encoding: string): string
+export function isNodeEncoding(encoding: vEncoding): string
 {
 	let enc = _enc(encoding);
-	return NodeEncoding.includes(_enc(encoding)) ? enc : null;
+	return NodeEncoding.includes(_enc<ENUM_NODE_ENCODING>(encoding)) ? enc : null;
 }
 
 let DISABLE_CODEC_DATA_WARN = false;
@@ -68,7 +18,7 @@ export function disableCodecDataWarn(bool: boolean = true)
 	return DISABLE_CODEC_DATA_WARN = bool;
 }
 
-export function codec_data(encoding: iconv.vEncoding): IEncodingCodec
+export function codec_data(encoding: vEncoding): IEncodingCodec
 {
 	let codec: {
 		encodingName?: string,
@@ -129,53 +79,5 @@ export function codec_data(encoding: iconv.vEncoding): IEncodingCodec
 		return null;
 	}
 }
-
-export const codec_table: IEncodingCodecTable = {
-	big5hkscs: {
-		id: 'big5',
-		name: 'Big5',
-	},
-	cp936: {
-		name: 'GB2312',
-	},
-
-	gbk: {
-		name: 'GBK',
-	},
-
-	eucjp: {
-		name: 'UC-JP',
-	},
-	shiftjis: {
-		name: 'SHIFT_JIS',
-	},
-
-	//------------------
-
-	utf8: {
-		name: 'UTF-8',
-	},
-	ucs2: {
-		name: 'UTF-16LE',
-	},
-
-	//------------------
-
-	utf16be: {
-		name: 'UTF-16BE',
-	},
-
-	/**
-	 * Error: Encoding not recognized: '' (searched as: '')
-	 */
-	utf32be: {
-		name: 'UTF-32BE',
-		not: true,
-	},
-	utf32le: {
-		name: 'UTF-32LE',
-		not: true,
-	},
-};
 
 export default exports as typeof import('./encoding');

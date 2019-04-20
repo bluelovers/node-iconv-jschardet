@@ -3,29 +3,28 @@ import iconvLite = require('iconv-lite');
 import jschardet = require('jschardet');
 import encodingExists = iconvLite.encodingExists;
 export * from './encoding';
-import { disableCodecDataWarn } from './encoding';
+export * from './lib/const';
+import { disableCodecDataWarn, IDetectData, vEncoding } from './encoding';
 export { encodingExists, jschardet, iconvLite, disableCodecDataWarn, };
-export declare enum EnumEncoding {
-    BIG5 = "Big5",
-    UTF8 = "UTF-8",
-    GBK = "Gbk"
-}
-export declare type vEncoding = 'Big5' | 'UTF-8' | 'Gbk' | string | null | EnumEncoding;
+/**
+ * 停用編碼檢測警告
+ */
 export declare function skipDecodeWarning(bool?: boolean): boolean;
+/**
+ * 將輸入內容轉換為 Buffer
+ */
 export declare function BufferFrom(str: any, encoding: vEncoding, from?: vEncoding): Buffer;
-export interface IDetectData {
-    encoding: string;
-    confidence: number;
-    name?: string;
-    id?: string;
-}
-export declare function detect(str: any, plus?: boolean): {
-    encoding: string;
-    confidence: number;
-    name?: string;
-    id?: string;
-};
+/**
+ * 檢測輸入內容編碼
+ */
+export declare function detect(str: any, plus?: boolean): IDetectData;
+/**
+ * 檢測輸入內容編碼並且轉換為 字串
+ */
 export declare function decode(str: any, from?: vEncoding): string;
+/**
+ * 檢測輸入內容編碼並且轉換為 Buffer
+ */
 export declare function encode(str: any, to?: vEncoding, from?: vEncoding): Buffer;
 declare const _default: typeof import(".");
 export default _default;

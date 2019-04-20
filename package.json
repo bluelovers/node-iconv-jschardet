@@ -1,6 +1,6 @@
 {
   "name": "iconv-jschardet",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "Convert/auto-detection Character encodings  in JavaScript ( iconv-lite, jschardet )",
   "keywords": [
     "big-5",
@@ -44,6 +44,7 @@
     "test": "test"
   },
   "scripts": {
+    "prepublishOnly": "npm run test && ncu -u",
     "test": "npx -r chai -r mocha -r ts-node mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\""
   },
   "dependencies": {
