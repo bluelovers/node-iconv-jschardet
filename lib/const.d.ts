@@ -1,6 +1,54 @@
 /**
  * Created by user on 2019/3/21.
  */
+/// <reference types="node" />
+export declare const enum CODEC_DATA_NAME {
+    BIG5 = "Big5",
+    GBK = "GBK",
+    GB2312 = "GB2312",
+    UTF_16_LE = "UTF-16LE",
+    UTF_16_BE = "UTF-16BE",
+    EUC_JP = "EUC-JP",
+    SHIFT_JIS = "SHIFT_JIS",
+    ASCII = "ASCII",
+    UTF_8 = "UTF-8",
+    UTF_32_LE = "UTF-32LE",
+    UTF_32_BE = "UTF-32BE"
+}
+export declare const enum CODEC_DATA_NAME_TO_UPPER_CASE {
+    BIG5 = "BIG5",
+    GBK = "GBK",
+    GB2312 = "GB2312",
+    UTF_16_LE = "UTF-16LE",
+    UTF_16_BE = "UTF-16BE",
+    EUC_JP = "EUC-JP",
+    SHIFT_JIS = "SHIFT_JIS",
+    ASCII = "ASCII",
+    UTF_8 = "UTF-8",
+    UTF_32_LE = "UTF-32LE",
+    UTF_32_BE = "UTF-32BE"
+}
+export declare const enum CODEC_DATA_ENCODING_ID {
+    big5hkscs = "big5hkscs",
+    cp936 = "cp936",
+    gbk = "gbk",
+    eucjp = "eucjp",
+    shiftjis = "shiftjis",
+    utf8 = "utf8",
+    ucs2 = "ucs2",
+    utf16be = "utf16be",
+    utf32be = "utf32be",
+    utf32le = "utf32le",
+    GBK = "gbk",
+    EUC_JP = "eucjp",
+    SHIFT_JIS = "shiftjis",
+    UTF_8 = "utf8",
+    UTF_16_BE = "utf16be",
+    UTF_32_LE = "utf32le",
+    UTF_32_BE = "utf32be",
+    ascii = "ascii",
+    ASCII = "ASCII"
+}
 export interface IEncodingCodec {
     key?: CODEC_DATA_ENCODING_ID | string;
     key2?: CODEC_DATA_ENCODING_ID | string;
@@ -64,59 +112,12 @@ export declare enum EnumEncoding {
     UTF8 = "UTF-8",
     GBK = "Gbk"
 }
-export declare type vEncoding = string | null | EnumEncoding | ENUM_NODE_ENCODING;
+export declare type vEncoding = string | null | EnumEncoding | ENUM_NODE_ENCODING | BufferEncoding;
 export interface IDetectData {
     encoding: string;
     confidence: number;
     name?: string;
     id?: CODEC_DATA_ENCODING_ID | string;
-}
-export declare const enum CODEC_DATA_NAME {
-    BIG5 = "Big5",
-    GBK = "GBK",
-    GB2312 = "GB2312",
-    UTF_16_LE = "UTF-16LE",
-    UTF_16_BE = "UTF-16BE",
-    EUC_JP = "EUC-JP",
-    SHIFT_JIS = "SHIFT_JIS",
-    ASCII = "ASCII",
-    UTF_8 = "UTF-8",
-    UTF_32_LE = "UTF-32LE",
-    UTF_32_BE = "UTF-32BE"
-}
-export declare const enum CODEC_DATA_NAME_TO_UPPER_CASE {
-    BIG5 = "BIG5",
-    GBK = "GBK",
-    GB2312 = "GB2312",
-    UTF_16_LE = "UTF-16LE",
-    UTF_16_BE = "UTF-16BE",
-    EUC_JP = "EUC-JP",
-    SHIFT_JIS = "SHIFT_JIS",
-    ASCII = "ASCII",
-    UTF_8 = "UTF-8",
-    UTF_32_LE = "UTF-32LE",
-    UTF_32_BE = "UTF-32BE"
-}
-export declare const enum CODEC_DATA_ENCODING_ID {
-    big5hkscs = "big5hkscs",
-    cp936 = "cp936",
-    gbk = "gbk",
-    eucjp = "eucjp",
-    shiftjis = "shiftjis",
-    utf8 = "utf8",
-    ucs2 = "ucs2",
-    utf16be = "utf16be",
-    utf32be = "utf32be",
-    utf32le = "utf32le",
-    GBK = "gbk",
-    EUC_JP = "eucjp",
-    SHIFT_JIS = "shiftjis",
-    UTF_8 = "utf8",
-    UTF_16_BE = "utf16be",
-    UTF_32_LE = "utf32le",
-    UTF_32_BE = "utf32be",
-    ascii = "ascii",
-    ASCII = "ASCII"
 }
 export declare function codecDataNameToUpperCase<T extends keyof typeof CODEC_DATA_NAME_TO_UPPER_CASE>(key: (typeof CODEC_DATA_NAME_TO_UPPER_CASE | typeof CODEC_DATA_NAME)[T]): (typeof CODEC_DATA_NAME_TO_UPPER_CASE)[T];
 export declare function codecDataNameToUpperCase(key: IDetectData["name"]): CODEC_DATA_NAME_TO_UPPER_CASE | string;

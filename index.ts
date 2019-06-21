@@ -42,7 +42,7 @@ export function BufferFrom(str, encoding: vEncoding, from?: vEncoding): Buffer
 
 	if (from)
 	{
-		data = Buffer.from(str, from);
+		data = Buffer.from(str, from as BufferEncoding);
 	}
 	else
 	{
@@ -90,6 +90,11 @@ export function detect(str, plus?: boolean)
 export function decode(str, from: vEncoding = null): string
 {
 	let c;
+
+	if (!str.length)
+	{
+		return '';
+	}
 
 	if (!from)
 	{
