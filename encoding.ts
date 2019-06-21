@@ -20,6 +20,11 @@ export function disableCodecDataWarn(bool: boolean = true)
 
 export function codec_data(encoding: vEncoding): IEncodingCodec
 {
+	if (encoding == null)
+	{
+		throw new Error(`encoding '${encoding}' is unknown or broken`);
+	}
+
 	let codec: {
 		encodingName?: string,
 		enc?: string,

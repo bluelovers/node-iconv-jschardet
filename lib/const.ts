@@ -244,6 +244,11 @@ export function _enc(encoding: string | CODEC_DATA_NAME | CODEC_DATA_NAME_TO_UPP
 export function _enc<T extends CODEC_DATA_ENCODING_ID | string>(encoding: string | CODEC_DATA_NAME | CODEC_DATA_NAME_TO_UPPER_CASE | ENUM_NODE_ENCODING): T
 export function _enc(encoding: string | CODEC_DATA_NAME | CODEC_DATA_NAME_TO_UPPER_CASE | ENUM_NODE_ENCODING): CODEC_DATA_ENCODING_ID | string
 {
+	if (encoding == null)
+	{
+		throw new Error(`encoding '${encoding}' is broken`);
+	}
+
 	return encoding
 		.toString()
 		.toLowerCase()
