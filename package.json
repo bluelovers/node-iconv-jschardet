@@ -45,18 +45,16 @@
     "test": "test"
   },
   "scripts": {
-    "coverage": "npx nyc yarn run test",
-    "lint": "eslint .",
-    "ncu": "npx npm-check-updates -u",
+    "test": "jest",
     "prepublishOnly": "yarn run test && yarn run ncu",
-    "postpublish": "git commit -m \"publish new version\" .",
-    "sort-package-json": "npx sort-package-json ./package.json",
-    "test": "npx -r chai -r mocha -r ts-node mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\""
+    "ncu": "npx yarn-tool ncu -u",
+    "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
     "debug-color2": "^1",
     "env-bool": "^1.0.3",
     "iconv-lite": "^0.5.1",
     "jschardet": "^2.1.1"
-  }
+  },
+  "gitHead": "92d2b636609ad9019e88bfa81b83c3db45968bb3"
 }
