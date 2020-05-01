@@ -1,11 +1,12 @@
 import iconvLite = require('iconv-lite');
 import jschardet = require('jschardet');
+import console from 'debug-color2/logger';
 
 import encodingExists = iconvLite.encodingExists;
 
 export * from './encoding';
 export * from './lib/const';
-import { codec_data, console, disableCodecDataWarn, IDetectData, vEncoding } from './encoding';
+import { codec_data, disableCodecDataWarn, IDetectData, vEncoding } from './encoding';
 import { codecDataNameToUpperCase, CODEC_DATA_NAME_TO_UPPER_CASE, ENUM_NODE_ENCODING } from './lib/const';
 
 export {

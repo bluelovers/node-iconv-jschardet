@@ -2,136 +2,133 @@
  * Created by user on 2018/1/27/027.
  */
 
-import * as iconvLite from 'iconv-lite';
-import localDev, { relative, expect, path, assert, util } from './_local-dev';
-
 import * as self from '../';
 
+/**
+ * 次常用國字標準字體表
+ */
+const BIG5_STR = "\xa6\xb8\xb1\x60\xa5\xce\xb0\xea\xa6\x72\xbc\xd0\xb7\xc7\xa6\x72\xc5\xe9\xaa\xed";
+const BIG5_BUF = Buffer.from('a6b8b160a5ceb0eaa672bcd0b7c7a672c5e9aaed', 'hex');
+
+const BIG5_UTF8_BUF = Buffer.from('e6 ac a1 e5 b8 b8 e7 94 a8 e5 9c 8b e5 ad 97 e6 a8 99 e6 ba 96 e5 ad 97 e9 ab 94 e8 a1 a8'.replace(/\s/g, ''), 'hex');
+
+self.skipDecodeWarning();
+
 // @ts-ignore
-describe(relative(__filename), () =>
+describe(`check encoding`, () =>
 {
-	let currentTest;
-
-	/**
-	 * 次常用國字標準字體表
-	 */
-	const BIG5_STR = "\xa6\xb8\xb1\x60\xa5\xce\xb0\xea\xa6\x72\xbc\xd0\xb7\xc7\xa6\x72\xc5\xe9\xaa\xed";
-	const BIG5_BUF = Buffer.from('a6b8b160a5ceb0eaa672bcd0b7c7a672c5e9aaed', 'hex');
-
-	const BIG5_UTF8_BUF = Buffer.from('e6 ac a1 e5 b8 b8 e7 94 a8 e5 9c 8b e5 ad 97 e6 a8 99 e6 ba 96 e5 ad 97 e9 ab 94 e8 a1 a8'.replace(/\s/g, ''), 'hex');
-
-	self.skipDecodeWarning();
-
 	// @ts-ignore
-	beforeEach(function ()
+	it(`BIG5_STR`, function (done)
 	{
-		// @ts-ignore
-		currentTest = this.currentTest;
+		let c = self.detect(BIG5_STR);
 
-		//console.log('it:before', currentTest.title);
-		//console.log('it:before', currentTest.fullTitle());
+		expect(c.name).toBe('Big5');
+		expect(c.encoding).toBe('Big5');
+
+		expect(c).toMatchSnapshot();
+
+		done();
 	});
 
 	// @ts-ignore
-	describe(`check encoding`, () =>
+	it(`BIG5_BUF`, function (done)
 	{
-		// @ts-ignore
-		it(`BIG5_STR`, function (done)
-		{
-			let c = self.detect(BIG5_STR);
+		let c = self.detect(BIG5_BUF);
 
-			expect(c.name).to.be.equal('Big5');
-			expect(c.encoding).to.be.equal('Big5');
+		expect(c.name).toBe('Big5');
+		expect(c.encoding).toBe('Big5');
 
-			done();
-		});
+		expect(c).toMatchSnapshot();
 
-		// @ts-ignore
-		it(`BIG5_BUF`, function (done)
-		{
-			let c = self.detect(BIG5_BUF);
+		done();
+	});
+});
 
-			expect(c.name).to.be.equal('Big5');
-			expect(c.encoding).to.be.equal('Big5');
+// @ts-ignore
+describe(`iconv`, () =>
+{
+	// @ts-ignore
+	it(`encode big5`, function (done)
+	{
+		//console.log('it:inner', currentTest.title);
+		//console.log('it:inner', currentTest.fullTitle());
 
-			done();
-		});
+		//expect(r).to.be.ok;
+		//assert.isOk(r.value, util.inspect(r));
+
+		let data = self.encode(BIG5_STR, 'big5');
+
+		let c = self.detect(data);
+
+		expect(c.name).toBe('Big5');
+		expect(c.encoding).toBe('Big5');
+
+		expect(c).toMatchSnapshot();
+		expect(data).toMatchSnapshot();
+
+		done();
+	});
+	// @ts-ignore
+	it(`encode big5`, function (done)
+	{
+		//console.log('it:inner', currentTest.title);
+		//console.log('it:inner', currentTest.fullTitle());
+
+		//expect(r).to.be.ok;
+		//assert.isOk(r.value, util.inspect(r));
+
+		let data = self.encode(BIG5_BUF, 'big5');
+
+		let c = self.detect(data, true);
+
+		expect(c.name).toBe('Big5');
+		expect(c.encoding).toBe('Big5');
+
+		expect(c).toMatchSnapshot();
+		expect(data).toMatchSnapshot();
+
+		done();
 	});
 
 	// @ts-ignore
-	describe(`iconv`, () =>
+	it(`encode`, function (done)
 	{
-		// @ts-ignore
-		it(`encode big5`, function (done)
-		{
-			//console.log('it:inner', currentTest.title);
-			//console.log('it:inner', currentTest.fullTitle());
+		let data = self.encode(BIG5_STR);
 
-			//expect(r).to.be.ok;
-			//assert.isOk(r.value, util.inspect(r));
+		let c = self.detect(data);
 
-			let data = self.encode(BIG5_STR, 'big5');
+		expect(c.name).toBe('UTF-8');
+		expect(c.encoding).toBe('UTF-8');
 
-			let c = self.detect(data);
+		expect(data).toEqual(BIG5_UTF8_BUF);
 
-			expect(c.name).to.be.equal('Big5');
-			expect(c.encoding).to.be.equal('Big5');
+		expect(c).toMatchSnapshot();
+		expect(data).toMatchSnapshot();
 
-			done();
-		});
-		// @ts-ignore
-		it(`encode big5`, function (done)
-		{
-			//console.log('it:inner', currentTest.title);
-			//console.log('it:inner', currentTest.fullTitle());
+		done();
+	});
 
-			//expect(r).to.be.ok;
-			//assert.isOk(r.value, util.inspect(r));
+	// @ts-ignore
+	it(`encode`, function (done)
+	{
+		//console.log('it:inner', currentTest.title);
+		//console.log('it:inner', currentTest.fullTitle());
 
-			let data = self.encode(BIG5_BUF, 'big5');
+		//expect(r).to.be.ok;
+		//assert.isOk(r.value, util.inspect(r));
 
-			let c = self.detect(data, true);
+		let data = self.encode(BIG5_BUF);
 
-			expect(c.name).to.be.equal('Big5');
-			expect(c.encoding).to.be.equal('Big5');
+		let c = self.detect(data);
 
-			done();
-		});
+		expect(c.name).toBe('UTF-8');
+		expect(c.encoding).toBe('UTF-8');
 
-		// @ts-ignore
-		it(`encode`, function (done)
-		{
-			let data = self.encode(BIG5_STR);
+		expect(data).toEqual(BIG5_UTF8_BUF);
 
-			let c = self.detect(data);
+		expect(c).toMatchSnapshot();
+		expect(data).toMatchSnapshot();
 
-			expect(c.name).to.be.equal('UTF-8');
-			expect(c.encoding).to.be.equal('UTF-8');
-
-			expect(data).to.be.deep.equal(BIG5_UTF8_BUF);
-
-			done();
-		});
-
-		// @ts-ignore
-		it(`encode`, function (done)
-		{
-			//console.log('it:inner', currentTest.title);
-			//console.log('it:inner', currentTest.fullTitle());
-
-			//expect(r).to.be.ok;
-			//assert.isOk(r.value, util.inspect(r));
-
-			let data = self.encode(BIG5_BUF);
-
-			let c = self.detect(data);
-
-			expect(c.name).to.be.equal('UTF-8');
-			expect(c.encoding).to.be.equal('UTF-8');
-
-			expect(data).to.be.deep.equal(BIG5_UTF8_BUF);
-
-			done();
-		});
+		done();
 	});
 });

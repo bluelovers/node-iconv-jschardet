@@ -1,9 +1,9 @@
 import iconvLite = require('iconv-lite');
-import { console } from 'debug-color2';
+import console from 'debug-color2/logger';
 import { _enc, codec_table, ENUM_NODE_ENCODING, IEncodingCodec, NodeEncoding, vEncoding } from './lib/const';
 
 export * from './lib/const';
-export { console }
+//export { console }
 
 export function isNodeEncoding(encoding: vEncoding): string
 {

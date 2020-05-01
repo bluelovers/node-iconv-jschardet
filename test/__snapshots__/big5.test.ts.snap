@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check encoding BIG5_BUF 1`] = `
+Object {
+  "confidence": 0.99,
+  "encoding": "Big5",
+  "name": "Big5",
+}
+`;
+
+exports[`check encoding BIG5_STR 1`] = `
+Object {
+  "confidence": 0.99,
+  "encoding": "Big5",
+  "name": "Big5",
+}
+`;
+
+exports[`iconv encode 1`] = `
+Object {
+  "confidence": 0.99,
+  "encoding": "UTF-8",
+  "name": "UTF-8",
+}
+`;
+
+exports[`iconv encode 2`] = `
+Object {
+  "data": Array [
+    230,
+    172,
+    161,
+    229,
+    184,
+    184,
+    231,
+    148,
+    168,
+    229,
+    156,
+    139,
+    229,
+    173,
+    151,
+    230,
+    168,
+    153,
+    230,
+    186,
+    150,
+    229,
+    173,
+    151,
+    233,
+    171,
+    148,
+    232,
+    161,
+    168,
+  ],
+  "type": "Buffer",
+}
+`;
+
+exports[`iconv encode 3`] = `
+Object {
+  "confidence": 0.99,
+  "encoding": "UTF-8",
+  "name": "UTF-8",
+}
+`;
+
+exports[`iconv encode 4`] = `
+Object {
+  "data": Array [
+    230,
+    172,
+    161,
+    229,
+    184,
+    184,
+    231,
+    148,
+    168,
+    229,
+    156,
+    139,
+    229,
+    173,
+    151,
+    230,
+    168,
+    153,
+    230,
+    186,
+    150,
+    229,
+    173,
+    151,
+    233,
+    171,
+    148,
+    232,
+    161,
+    168,
+  ],
+  "type": "Buffer",
+}
+`;
+
+exports[`iconv encode big5 1`] = `
+Object {
+  "confidence": 0.99,
+  "encoding": "Big5",
+  "name": "Big5",
+}
+`;
+
+exports[`iconv encode big5 2`] = `
+Object {
+  "data": Array [
+    166,
+    184,
+    177,
+    96,
+    165,
+    206,
+    176,
+    234,
+    166,
+    114,
+    188,
+    208,
+    183,
+    199,
+    166,
+    114,
+    197,
+    233,
+    170,
+    237,
+  ],
+  "type": "Buffer",
+}
+`;
+
+exports[`iconv encode big5 3`] = `
+Object {
+  "confidence": 0.99,
+  "encoding": "Big5",
+  "id": "big5",
+  "name": "Big5",
+}
+`;
+
+exports[`iconv encode big5 4`] = `
+Object {
+  "data": Array [
+    166,
+    184,
+    177,
+    96,
+    165,
+    206,
+    176,
+    234,
+    166,
+    114,
+    188,
+    208,
+    183,
+    199,
+    166,
+    114,
+    197,
+    233,
+    170,
+    237,
+  ],
+  "type": "Buffer",
+}
+`;

@@ -15,6 +15,7 @@ const iconvLite = require("iconv-lite");
 exports.iconvLite = iconvLite;
 const jschardet = require("jschardet");
 exports.jschardet = jschardet;
+const logger_1 = require("debug-color2/logger");
 var encodingExists = iconvLite.encodingExists;
 exports.encodingExists = encodingExists;
 __exportStar(require("./encoding"), exports);
@@ -114,7 +115,7 @@ function decode(str, from = null) {
             c = c || detect(str);
             // @ts-ignore
             if (!iconvLite.skipDecodeWarning) {
-                encoding_1.console.warn('decode', from, c);
+                logger_1.default.warn('decode', from, c);
             }
             //data = str;
             data = iconvLite.decode(str, from);

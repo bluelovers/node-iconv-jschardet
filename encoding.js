@@ -10,12 +10,12 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.codec_data = exports.disableCodecDataWarn = exports.isNodeEncoding = exports.console = void 0;
+exports.codec_data = exports.disableCodecDataWarn = exports.isNodeEncoding = void 0;
 const iconvLite = require("iconv-lite");
-const debug_color2_1 = require("debug-color2");
-Object.defineProperty(exports, "console", { enumerable: true, get: function () { return debug_color2_1.console; } });
+const logger_1 = require("debug-color2/logger");
 const const_1 = require("./lib/const");
 __exportStar(require("./lib/const"), exports);
+//export { console }
 function isNodeEncoding(encoding) {
     let enc = const_1._enc(encoding);
     return const_1.NodeEncoding.includes(const_1._enc(encoding)) ? enc : null;
@@ -52,7 +52,7 @@ function codec_data(encoding) {
         return const_1.codec_table[enc];
     }
     if (!DISABLE_CODEC_DATA_WARN) {
-        debug_color2_1.console.warn(encoding, enc, enc2, codec);
+        logger_1.default.warn(encoding, enc, enc2, codec);
     }
     if (enc2) {
         return {
