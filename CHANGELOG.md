@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/bluelovers/node-iconv-jschardet/compare/iconv-jschardet@2.0.3...iconv-jschardet@2.0.4) (2020-05-01)
+
+
+### Features
+
+* add BufferFrom default encoding ([1c6b39c](https://github.com/bluelovers/node-iconv-jschardet/commit/1c6b39cfdd27e6161bac3cf75361e6fb21122ddb))
+
+
+### BREAKING CHANGES
+
+* add BufferFrom default encoding
+
+
+
+
+
 ## [2.0.3](https://github.com/bluelovers/node-iconv-jschardet/compare/iconv-jschardet@2.0.2...iconv-jschardet@2.0.3) (2020-05-01)
 
 **Note:** Version bump only for package iconv-jschardet
