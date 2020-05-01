@@ -34,7 +34,7 @@ exports.skipDecodeWarning = skipDecodeWarning;
 /**
  * 將輸入內容轉換為 Buffer
  */
-function BufferFrom(str, encoding, from) {
+function BufferFrom(str, encoding = 'utf8', from) {
     let data;
     if (from) {
         data = Buffer.from(str, from);

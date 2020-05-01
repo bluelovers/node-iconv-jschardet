@@ -211,6 +211,7 @@ export enum EnumEncoding
 	GBK = 'Gbk',
 }
 
+export type vNodeEncoding = string | null | ENUM_NODE_ENCODING | BufferEncoding;
 export type vEncoding = string | null | EnumEncoding | ENUM_NODE_ENCODING | BufferEncoding;
 
 export interface IDetectData

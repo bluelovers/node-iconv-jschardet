@@ -37,7 +37,7 @@ export function skipDecodeWarning(bool: boolean = true): boolean
 /**
  * 將輸入內容轉換為 Buffer
  */
-export function BufferFrom(str, encoding: vEncoding, from?: vEncoding): Buffer
+export function BufferFrom(str, encoding: vEncoding = 'utf8', from?: vEncoding): Buffer
 {
 	let data;
 
