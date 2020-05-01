@@ -56,11 +56,7 @@
   "dependencies": {
     "debug-color2": "^1",
     "env-bool": "^1.0.3",
-    "iconv-lite": "^0.4.24",
-    "jschardet": "^2.1.0"
-  },
-  "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.11",
-    "@types/node": "^12"
+    "iconv-lite": "^0.5.1",
+    "jschardet": "^2.1.1"
   }
 }
