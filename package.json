@@ -45,7 +45,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "prepublishOnly": "yarn run test && yarn run ncu",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"

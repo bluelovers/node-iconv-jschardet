@@ -9,13 +9,16 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 }
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.encode = exports.decode = exports.detect = exports.BufferFrom = exports.skipDecodeWarning = exports.disableCodecDataWarn = exports.iconvLite = exports.jschardet = exports.encodingExists = void 0;
 const iconvLite = require("iconv-lite");
 exports.iconvLite = iconvLite;
 const jschardet = require("jschardet");
 exports.jschardet = jschardet;
-const logger_1 = require("debug-color2/logger");
+const logger_1 = __importDefault(require("debug-color2/logger"));
 var encodingExists = iconvLite.encodingExists;
 exports.encodingExists = encodingExists;
 __exportStar(require("./encoding"), exports);

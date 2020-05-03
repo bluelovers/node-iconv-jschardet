@@ -9,10 +9,13 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 }
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.codec_data = exports.disableCodecDataWarn = exports.isNodeEncoding = void 0;
 const iconvLite = require("iconv-lite");
-const logger_1 = require("debug-color2/logger");
+const logger_1 = __importDefault(require("debug-color2/logger"));
 const const_1 = require("./lib/const");
 __exportStar(require("./lib/const"), exports);
 //export { console }
